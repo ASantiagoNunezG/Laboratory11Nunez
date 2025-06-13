@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 // Agrega el contexto con la cadena de conexión correcta
 builder.Services.AddDbContext<Context>(options =>
-    options.UseSqlServer(@"Server=LAB1502-05;Database=NunezDB;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;"));
+    options.UseSqlServer(@"Server=LAPTOP-R79EK4NG\SQLEXPRESS2017;Database=NunezDB;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;"));
 
 //builder.Services.AddDbContext<SchoolContext>(options =>
 //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
