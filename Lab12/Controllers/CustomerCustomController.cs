@@ -162,5 +162,29 @@ namespace Lab12.Controllers
                 })
                 .ToList();
         }
+
+        //actualizar numero de documento al cliente al cliente
+        [HttpPut]
+        public CustomerResponse UpdateDocument(CustomerResquestDN request)
+        {
+            var customer = _context.Customers.FirstOrDefault(c => c.CustomerId == request.CustomerId && c.Active);
+            if (customer == null)
+            {
+                throw new Exception("Cliente no encontrado.");
+            }
+
+            customer.DocumentNumber = request.DocumentNumber;
+
+            _context.SaveChanges();
+
+            return new CustomerResponse
+            {
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                DocumentNumber = customer.DocumentNumber,
+                Email = customer.Email
+            };
+        }
+
     }
 }
